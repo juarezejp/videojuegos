@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Modificar artículo
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <h1>Modificar artículo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Guardar">
+        <a href="{% url 'articulos_lista' %}">Regresar</a>
+
+    </form>
+{% endblock contenido %}

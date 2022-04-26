@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Nuevo de videojuego
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Nuevo artículo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-success" type="submit" value="Agregar">
+        <a class="btn btn-danger" href="{% url 'articulos_lista' %}">Regresar</a>
+
+    </form>
+{% endblock contenido %}
+
+{% block scripts %}
+    <!--<script src="{% static 'dist/js/pages/dashboard3.js' %}"></script>-->
+{% endblock scripts %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Lista de videojuego
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Lista de artículos</h1>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.lever == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-danger">
+                    {{message}}
+                </div>
+            {% else %}
+                <div class="alert alert-success">
+                    {{message}}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Stock</th>
+                <th>Género</th>
+                <th>Categoría</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for articulo in page_obj  %}
+                <tr>
+                    <td>{{articulo.nombre}}</td>
+                    <td>
+                        {% if articulo.descripcion %}
+                            {{articulo.descripcion}}    
+                        {% else %}
+                            No cuenta con descripción
+                        {% endif %}
+                    </td>
+                    <td>{{articulo.stock}}</td>
+                    <td>{{articulo.genero}}</td>
+                    <td>{{articulo.categoria.nombre}}</td>
+                    <td>
+                        
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'editar_articulos' articulo.id %}">Editar</a>
+                        <a class="btn btn-outline-warning btn-sm" href="{% url 'eliminar_articulos' articulo.id %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">
+                        <p>No existen artículos registrados</p>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock contenido %}

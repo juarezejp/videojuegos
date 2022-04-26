@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    {{accion}} Categoria
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>{{accion}} Categoria</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-success" type="submit"
+        {% if accion == 'Nueva' %}
+            value="Agregar"
+         {% else %}
+            value="Guardar"
+         {% endif %}
+         >
+        <a class="btn btn-danger" href="{% url 'categorias_lista' %}">Regresar</a>
+
+    </form>
+{% endblock contenido %}
+
+{% block scripts %}
+    <!--<script src="{% static 'dist/js/pages/dashboard3.js' %}"></script>-->
+{% endblock scripts %}
