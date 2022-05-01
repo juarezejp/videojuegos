@@ -14,6 +14,73 @@ SECRET_KEY = 'django-insecure-ax&vhsfwxzf#h6xic7bxzu1pw$l&f(72t-i-zyvf8%)=rrw97c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    #Aqui se declaran los formatters
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+
+    #Aqui se declaran los filters
+    'filters': {
+        'special': {
+            '()': 'project.logging.SpecialFilter',
+            'foo': 'bar',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+
+    #Aqui se declaran los handlers
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'file_articulos': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'videojuegos/videojuegos/static/logs/articulos.log',
+        },
+        # 'mail_admins': {
+        #     'level': 'ERROR',
+        #     'class': 'django.utils.log.AdminEmailHandler',
+        #     'filters': ['special']
+        # }
+    },
+
+    #Aqui se declaran los Loggers
+    'loggers': {        
+        'django': {
+            'handlers': ['file_articulos','console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        # 'django.request': {
+        #     'handlers': ['mail_admins'],
+        #     'level': 'ERROR',
+        #     'propagate': False,
+        # },
+        # 'myproject.custom': {
+        #     'handlers': ['console', 'mail_admins'],
+        #     'level': 'INFO',
+        #     'filters': ['special']
+        # }
+    }
+}
+
 ALLOWED_HOSTS = ['*']
 
 
