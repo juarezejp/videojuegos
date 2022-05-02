@@ -1,0 +1,6 @@
+Watching for file changes with StatReloader
+"GET /articulos/ HTTP/1.1" 200 32773
+"GET /articulos/nuevo HTTP/1.1" 200 32312
+"GET /listacategoria HTTP/1.1" 200 31623
+"GET /nuevacategoria HTTP/1.1" 200 31576
+"GET /static/dist/js/pages/dashboard3.js HTTP/1.1" 200 3634

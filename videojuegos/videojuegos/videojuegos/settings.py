@@ -40,15 +40,15 @@ LOGGING = {
     #Aqui se declaran los handlers
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'WARNING',
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
         'file_articulos': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'static/logs/articulos.log',
+            'filename': 'static/logs/logging.log',
         },
     },
 
@@ -56,7 +56,7 @@ LOGGING = {
     'loggers': {        
         'django': {
             'handlers': ['file_articulos','console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': True,
         }
     }
