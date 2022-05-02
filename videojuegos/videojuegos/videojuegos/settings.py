@@ -45,7 +45,7 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
-        'file_articulos': {
+        'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': 'static/logs/logging.log',
@@ -55,7 +55,7 @@ LOGGING = {
     #Aqui se declaran los Loggers
     'loggers': {        
         'django': {
-            'handlers': ['file_articulos','console'],
+            'handlers': ['file','console'],
             'level': 'INFO',
             'propagate': True,
         }

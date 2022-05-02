@@ -3,6 +3,9 @@ from django.core.paginator import Paginator
 from django.contrib import messages
 from articulos.models import Articulos, Categoria
 from articulos.forms import FromArticulo, FromCategoria
+import logging
+
+logger = logging.getLogger(__name__)
 
 #Categorias
 # URLConf->MVT
@@ -80,8 +83,10 @@ def editar_categoria(request, id):
     categoria = Categoria.objects.get(id=id) 
     if request.method == 'POST':#viene por post
         form = FromCategoria(request.POST, instance=categoria)
+        logger.debug("ID de la categoria: "+categoria.id)
         if form.is_valid():
             form.save()
+            logger.warning("Se modifico una categoria con exito")
             messages.error(request, 'Se modifico una categoria.')
             return redirect('categoria_lista')
     else:#viene por get
