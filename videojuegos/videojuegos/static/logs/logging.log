@@ -4,3 +4,39 @@ Watching for file changes with StatReloader
 "GET /listacategoria HTTP/1.1" 200 31623
 "GET /nuevacategoria HTTP/1.1" 200 31576
 "GET /static/dist/js/pages/dashboard3.js HTTP/1.1" 200 3634
+Watching for file changes with StatReloader
+/app/articulos/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /editarcategoria/2 HTTP/1.1" 200 31620
+"GET /listacategoria HTTP/1.1" 200 31633
+"GET /editarcategoria/2 HTTP/1.1" 200 31620
+"POST /editarcategoria/2 HTTP/1.1" 302 0
+"GET /listacategoria HTTP/1.1" 200 31804
+/app/articulos/views.py changed, reloading.
+Watching for file changes with StatReloader
+/app/articulos/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /listacategoria HTTP/1.1" 200 31635
+"GET /listacategoria HTTP/1.1" 200 31635
+"GET /editarcategoria/2 HTTP/1.1" 200 31622
+"POST /editarcategoria/2 HTTP/1.1" 302 0
+"GET /listacategoria HTTP/1.1" 200 31802
+/app/articulos/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /listacategoria HTTP/1.1" 200 31633
+"GET /editarcategoria/2 HTTP/1.1" 200 31620
+"POST /editarcategoria/2 HTTP/1.1" 302 0
+"GET /listacategoria HTTP/1.1" 200 31803
+/app/articulos/views.py changed, reloading.
+Watching for file changes with StatReloader
+/app/articulos/views.py changed, reloading.
+Watching for file changes with StatReloader
+/app/articulos/views.py changed, reloading.
+Watching for file changes with StatReloader
+/app/articulos/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /listacategoria HTTP/1.1" 200 31634
+"GET /editarcategoria/2 HTTP/1.1" 200 31621
+"POST /editarcategoria/2 HTTP/1.1" 302 0
+"GET /listacategoria HTTP/1.1" 200 31804
